@@ -37,12 +37,10 @@ Available themes and applications:
 - **Security and Privacy**: ProtonVPN, Proton Pass
 - **Media and Creative**: Spotify, VLC, ImageMagick, GIMP, Audacity, HandBrake, Calibre, Last.fm, bandcamp-dl, Transmission
 - **Communication**: Zoom, Microsoft Teams, WhatsApp, Slack
-- **Virtualization**: Container, Multipass, UTM, macpine
+- **Virtualization**: Multipass, UTM, macpine
 - **AI Tools**: Ollama, AnythingLLM, Claude, Claude Code, LM Studio, LM Studio Bionic, OpenCode, llama.cpp, Osaurus
 - **Keyboards and Input**: Vial, VIA, QMK and QMK Toolbox, HRM
 - **Utilities**: Pandoc, Homebrew App, Geekbench, Geekbench AI, Raspberry Pi Imager, mas, RemoveMacAI, DisplayLink Manager, Deskflow, Wireshark, Caffeine, Muzzle, Burn, MacTracker, VoodooPad
-
-Container remains in the installer catalog, but its Homebrew cask was unavailable when checked on 2026-10-05.
 
 Run from this directory:
 

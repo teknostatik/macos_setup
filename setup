@@ -390,7 +390,6 @@ APPS=(
     "zerotier|cloud|ZeroTier One|cask|zerotier-one|network virtualization|none|none"
     "protonvpn|security|ProtonVPN|cask|protonvpn|VPN service|none|none"
     "protonpass|security|Proton Pass|cask|proton-pass|password manager|none|none"
-    "container|virtualization|Container|cask|container|app sandboxing|none|none"
     "spotify|media|Spotify|cask|spotify|music streaming|none|none"
     "vlc|media|VLC|cask|vlc|media player|none|none"
     "imagemagick|media|ImageMagick|formula|imagemagick|image manipulation tool|none|none"
