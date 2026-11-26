@@ -194,6 +194,9 @@ is_bundle_installed() {
         qmk)
             is_installed formula qmk/qmk/qmk && is_installed cask qmk-toolbox
             ;;
+        office)
+            is_installed cask microsoft-office-businesspro
+            ;;
         unixbench)
             [ -d "$HOME/byte-unixbench" ]
             ;;
@@ -273,6 +276,47 @@ run_hook() {
             ;;
         opencode_tap)
             ensure_brew_tap "anomalyco/tap"
+            ;;
+        office_bundle)
+            echo ""
+            echo "Microsoft Office installation options:"
+            echo "  1) Microsoft Office Business Pro (complete cask)"
+            echo "  2) Choose individual Office applications"
+            echo ""
+            local office_choice
+            read -r -p "Choose 1 or 2: " office_choice
+
+            case "$office_choice" in
+                1)
+                    if is_installed cask microsoft-office-businesspro; then
+                        echo "Microsoft Office Business Pro is already installed, skipping..."
+                    else
+                        brew install --cask microsoft-office-businesspro
+                    fi
+                    ;;
+                2)
+                    local office_app office_cask office_name
+                    for office_app in \
+                        "Word|microsoft-word" \
+                        "Excel|microsoft-excel" \
+                        "PowerPoint|microsoft-powerpoint" \
+                        "Outlook|microsoft-outlook" \
+                        "OneNote|microsoft-onenote" \
+                        "Teams|microsoft-teams" \
+                        "OneDrive|onedrive"
+                    do
+                        IFS='|' read -r office_name office_cask <<< "$office_app"
+                        if is_installed cask "$office_cask"; then
+                            echo "$office_name is already installed, skipping..."
+                        elif prompt_yes_no "Install Microsoft $office_name?"; then
+                            brew install --cask "$office_cask"
+                        fi
+                    done
+                    ;;
+                *)
+                    echo "Invalid choice. No Microsoft Office components were installed."
+                    ;;
+            esac
             ;;
         removemacai_tap)
             ensure_brew_tap "omlahore/tap"
@@ -362,6 +406,7 @@ THEMES=(
     "cloud|Cloud and Sync|Storage, sync, and remote access tools."
     "security|Security and Privacy|VPN and password management tools."
     "media|Media and Creative|Audio, video, image, ebook, and media tools."
+    "office|Microsoft Office|Microsoft Office suite and individual Office applications."
     "communication|Communication|Meeting, chat, and collaboration apps."
     "virtualization|Virtualization|Virtual machines and containers."
     "ai|AI Tools|Local model runtimes and interfaces."
@@ -405,6 +450,7 @@ APPS=(
     "lastfm|media|Last.fm|cask|lastfm|music scrobbling|ensure_rosetta|none"
     "bandcampdl|media|bandcamp-dl|formula|bandcamp-dl|Bandcamp music downloader|none|none"
     "transmission|media|Transmission|cask|transmission|BitTorrent client|none|none"
+    "office|office|Microsoft Office|bundle|office-bundle|Microsoft Office Business Pro or individual Office applications|none|office_bundle"
     "zoom|communication|Zoom|cask|zoom|video conferencing|none|none"
     "teams|communication|Microsoft Teams|cask|microsoft-teams|team collaboration|none|none"
     "whatsapp|communication|WhatsApp|cask|whatsapp|messaging app|none|none"
