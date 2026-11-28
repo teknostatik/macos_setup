@@ -36,6 +36,7 @@ Available themes and applications:
 - **Cloud and Sync**: Dropbox, Proton Drive, ZeroTier One
 - **Security and Privacy**: ProtonVPN, Proton Pass
 - **Media and Creative**: Spotify, VLC, ImageMagick, GIMP, Audacity, HandBrake, Calibre, Last.fm, bandcamp-dl, Transmission
+- **Microsoft Office**: Choose the `microsoft-office-businesspro` cask or individual prompts for Word, Excel, PowerPoint, Outlook, OneNote, Teams, and OneDrive. If the Business Pro cask is already installed, the Office bundle is skipped.
 - **Communication**: Zoom, Microsoft Teams, WhatsApp, Slack
 - **Virtualization**: Multipass, UTM, macpine
 - **AI Tools**: Ollama, AnythingLLM, Claude, Claude Code, LM Studio, LM Studio Bionic, OpenCode, llama.cpp, Osaurus
